@@ -11,7 +11,7 @@ import random
 class QuestionListView(APIView):
     def get(self, request, category, pagination):
         try:
-            queryset = Question.objects.filter(Category__name=category).order_by('date_added')[:pagination]
+            queryset = Question.objects.filter(Category__name=category).order_by('?')[:pagination]
         except Question.DoesNotExist:
             raise NotFound("Questions not found.")
 
