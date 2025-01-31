@@ -8,13 +8,15 @@ from datetime import datetime
 
 def populate_db(request):
     # Fetch the Maths category (ensure it exists in your database)
-    english_category = Category.objects.get(name="english")
+    english = Category.objects.get(name="english")
+    maths = Category.objects.get(name="maths")
+    science = Category.objects.get(name="science")
     
-    questions_data = []
+    question_data = []
     
     # Insert questions into the database
     created_count = 0
-    for data in questions_data:
+    for data in question_data:
         if not Question.objects.filter(question=data['question']).exists():
             Question.objects.create(
                 question=data['question'],
